@@ -1,0 +1,25 @@
+Jared Leighton
+CSE 118 (Fall 2023)
+
+Homework Set 02
+
+1. Primitive Numeric Data Types in Java
+	- byte	 (1 byte)
+	- short	 (2 bytes)
+	- int	 (4 bytes)
+	- long	 (8 bytes)
+	- float	 (4 bytes)
+	- double (8 bytes)
+
+2. Type Casting in Java
+	- Type casting is the conversion of one data type to another.
+
+	- Implicit conversion is when a value is converted automatically from a smaller data type to another type of larger size.
+	Example: int => double
+		int myInt = 5;
+		double myDouble = myInt;
+
+	- Explicit conversion is when a value is converted manually from a larger data type into a smaller data type, often resulting in loss of data/accuracy.
+	Example: double => int
+		double myDouble = 5.67d;
+		int myInt = (int)myDouble;

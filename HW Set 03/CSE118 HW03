@@ -1,0 +1,45 @@
+CSE 118 (Fall 2023)
+
+After the following assignment statements are executed, what values will be stored in variables:
+
+int x = 32;
+iny y = x++;
+	x = 33
+	y = 32
+
+int x = 45;
+int y = --x;
+	x = 44
+	y = 44
+
+int x = 21; 
+int y = 27;
+int z = x++ - --y;
+	x = 22
+	y = 26
+	z = -5
+
+int x = 23;
+int y = 25;
+int z = x-- + y++;
+	x = 22
+	y = 26
+	z = 48
+
+int x = 3;
+int y = 4;
+y += x-- + x++;
+	x = 3
+	y = 9
+
+int x = 20;
+int y = 20;
+y -= x + 30;
+	x = 20
+	y = -30
+
+Manually evaluate the following expressions:
+(int)(37.456 * 100 / 10)		result: 374
+(int)(37.456 * 100) / 10		result: 374
+(int)(37.456 * 100) / 10.0		result: 374.5
+(int)(37.456) * 100.0 / 10.0	result: 370.0
