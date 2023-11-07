@@ -10,22 +10,33 @@ public class Conversion {
 	}
 	
 	private static int Char2Val(char c) {
-		// assumes character has already been validated for efficiency
 		if (c >= '0' && c <= '9')
 			return c - '0';
-		return c - 'A' + 10;
+		else if (c >= 'A' && c <= 'Z')
+			return c - 'A';
+		return c - 'a' + 10;
 	}
 
-	public static String Dec2Hex(int dec) {
-		String hex = "";
+	public static boolean IsValidNumber(String str, int base) {
+		if (str.length() == 0) return false;
 		
-		int rem, n = dec;
-		while (n > 0) {
-			rem = n % 16;
-			n /= 16;
-			hex = String.format("%c%s", rem%10 + (rem<10? '0':'A'), hex);
+		for (int i = 0; i < str.length(); i++) {
+			int val = Char2Val(str.charAt(i));
+			if (val >= base)
+				return false;
 		}
-		return hex;
+		return true;
+	}
+	
+	public static String IntToRebasedString(int num, int base) {
+		String str = "";
+		
+		while (num > 0) {
+			int rem = num % base;
+			num /= base;
+			str = String.format("%c%s", rem%10 + (rem<10? '0':'A'), str);
+		}
+		return str;
 	}
 	
 	public static int RebaseToDecimal(String num, int base) {

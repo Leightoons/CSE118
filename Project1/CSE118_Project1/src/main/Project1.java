@@ -16,14 +16,29 @@ import main.*;
 
 public class Project1 {
 	
+	
+	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
-		int x = Conversion.RebaseToDecimal("A11F", 16);
-		System.out.println(x);
-		
-		int dec = 77985;
-		System.out.printf("%d = %s\n", dec, Conversion.Dec2Hex(dec) );
+		while (true) {
+			System.out.println("Enter a valid hexadecimal number: " );
+			String userNum = input.nextLine();
+			
+			if (!Conversion.IsValidNumber(userNum,16)) {
+				System.out.println("You fucked it up.");
+				continue;
+			}
+			
+			int dec = Conversion.RebaseToDecimal(userNum, 16);
+			String bin = Conversion.IntToRebasedString(dec, 2);
+			
+			System.out.printf("Decimal: %d\n", dec);
+			System.out.printf("Binary: %s\n", bin);
+			
+			break;
+			
+		}
 
 	}
 
