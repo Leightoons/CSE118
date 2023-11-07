@@ -19,7 +19,7 @@ public class Project1 {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
-		int x = Conversion.Hex2Int("A");
+		int x = Conversion.Hex2Int("A11F");
 		System.out.println(x);
 		
 		int dec = 77985;

@@ -33,7 +33,7 @@ public class Conversion {
 			else
 				val = 10 + c - 'A';
 			
-			result += val * Utility.IntPow(16, i);
+			result += val * Utility.IntPow(16, hex.length()-1 -i);
 		}
 		
 		return result;
