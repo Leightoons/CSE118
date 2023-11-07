@@ -27,12 +27,7 @@ public class Conversion {
 		
 		for (int i = 0; i < hex.length(); i++) {
 			char c = hex.charAt(i);
-			
-			if (c >= '0' && c <= '9')
-				val = c - '0';
-			else
-				val = 10 + c - 'A';
-			
+			val = (c >= '0' && c <= '9')? c - '0' : c - 'A' + 10;
 			result += val * Utility.IntPow(16, hex.length()-1 -i);
 		}
 		
