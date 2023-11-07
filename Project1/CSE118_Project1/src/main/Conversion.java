@@ -1,13 +1,19 @@
 package main;
 
-import main.Utility;
-
 public class Conversion {
 	
+	private static int IntPow(int a, int b) {
+		int i = 0, result = 1;
+		while (i++ < b)
+			result *= a;
+		return result;
+	}
+	
 	private static int Char2Val(char c) {
+		// assumes character has already been validated for efficiency
 		if (c >= '0' && c <= '9')
 			return c - '0';
-		return c - 'A';
+		return c - 'A' + 10;
 	}
 
 	public static String Dec2Hex(int dec) {
@@ -19,18 +25,15 @@ public class Conversion {
 			n /= 16;
 			hex = String.format("%c%s", rem%10 + (rem<10? '0':'A'), hex);
 		}
-		return "0x"+hex;
+		return hex;
 	}
 	
-	public static int Hex2Int(String hex) {
+	public static int RebaseToDecimal(String num, int base) {
 		int val, result = 0;
-		
-		for (int i = 0; i < hex.length(); i++) {
-			char c = hex.charAt(i);
-			val = (c >= '0' && c <= '9')? c - '0' : c - 'A' + 10;
-			result += val * Utility.IntPow(16, hex.length()-1 -i);
+		for (int i = 0; i < num.length(); i++) {
+			val = Char2Val(num.charAt(i));
+			result += val * IntPow(base, num.length()-1 - i);
 		}
-		
 		return result;
 	}
 	
