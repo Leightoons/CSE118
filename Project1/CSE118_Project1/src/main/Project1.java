@@ -1,7 +1,8 @@
 package main;
+
 import java.util.Scanner;
 
-import main.*;
+import util.Console;
 
 /* Write a Java program to: 
  * - Convert binary to decimal or hex
@@ -16,8 +17,13 @@ import main.*;
 
 public class Project1 {
 	
-	
-	
+	public static final String menu =
+		"Select an option:"+
+		" 1. Binary to hexadecimal & decimal\n"+
+		" 2. Hexadecimal to binary & decimal\n"+
+		" 3. Decimal to binary % hexadecimal\n"+
+		" 4. Exit";
+
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
@@ -25,16 +31,17 @@ public class Project1 {
 			System.out.println("Enter a valid hexadecimal number: " );
 			String userNum = input.nextLine();
 			
-			if (!Conversion.IsValidNumber(userNum,16)) {
-				System.out.println("You fucked it up.");
+			if (!Conversion.isValidNumber(userNum,16)) {
+				System.out.println("Invalid input\n");
 				continue;
 			}
 			
-			int dec = Conversion.RebaseToDecimal(userNum, 16);
-			String bin = Conversion.IntToRebasedString(dec, 2);
+			int dec = Conversion.rebaseToInt(userNum, 16);
+			String bin = Conversion.intToRebasedString(dec, 2);
 			
-			System.out.printf("Decimal: %d\n", dec);
-			System.out.printf("Binary: %s\n", bin);
+			System.out.printf("Hexadecimal: %s\n", userNum);
+			System.out.printf("Decimal:     %d\n", dec);
+			System.out.printf("Binary:      %s\n", bin);
 			
 			break;
 			
