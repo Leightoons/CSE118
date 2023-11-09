@@ -22,6 +22,7 @@ public class Conversion {
 		else return -1;
 	}
 
+	
 	/**
 	 * Validates that a number represented as a string contains
 	 * only characters valid for the given number system's base.

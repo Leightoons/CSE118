@@ -33,6 +33,36 @@ public class Project1 {
 		return -1;
 	}
 
+	public static String bin2Dec(String bin) {
+		int val = Conversion.rebaseToInt(bin, 2);
+		return Conversion.intToRebasedString(val, 10);
+	}
+	
+	public static String bin2Hex(String bin) {
+		int val = Conversion.rebaseToInt(bin, 2);
+		return Conversion.intToRebasedString(val, 16);
+	}
+	
+	public static String dec2Bin(String dec) {
+		int val = Conversion.rebaseToInt(dec, 10);
+		return Conversion.intToRebasedString(val, 2);
+	}
+	
+	public static String dec2Hex(String dec) {
+		int val = Conversion.rebaseToInt(dec, 10);
+		return Conversion.intToRebasedString(val, 16);
+	}
+
+	public static String hex2Bin(String hex) {
+		int val = Conversion.rebaseToInt(hex, 16);
+		return Conversion.intToRebasedString(val, 2);
+	}
+	
+	public static String hex2Dec(String hex) {
+		int val = Conversion.rebaseToInt(hex, 16);
+		return Conversion.intToRebasedString(val, 10);
+	}
+	
 	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
@@ -52,14 +82,10 @@ public class Project1 {
 						System.out.println("Input not valid\n");
 						continue;
 					}
-					
-					int value = Conversion.rebaseToInt(bin, 2);
-					String dec = Conversion.intToRebasedString(value, 10);
-					String hex = Conversion.intToRebasedString(value, 16);
-					
-					System.out.println("Binary:      "+bin);
-					System.out.println("Decimal:     "+dec);
-					System.out.println("Hexadecimal: "+hex);
+
+					System.out.println("Binary:      " + bin);
+					System.out.println("Decimal:     " + bin2Dec(bin));
+					System.out.println("Hexadecimal: " + bin2Hex(bin));
 					break;
 				}
 				break;
@@ -74,14 +100,9 @@ public class Project1 {
 						continue;
 					}
 					
-					int value = Conversion.rebaseToInt(hex, 16);
-					hex = Conversion.intToRebasedString(value, 16); // makes sure output uses uppercase letters
-					String bin = Conversion.intToRebasedString(value, 2);
-					String dec = Conversion.intToRebasedString(value, 10);
-					
-					System.out.println("Hexadecimal: "+hex);
-					System.out.println("Binary:      "+bin);
-					System.out.println("Decimal:     "+dec);
+					System.out.println("Hexadecimal: " + hex);
+					System.out.println("Binary:      " + hex2Bin(hex));
+					System.out.println("Decimal:     " + hex2Dec(hex));
 					break;
 				}
 				break;
@@ -96,13 +117,9 @@ public class Project1 {
 						continue;
 					}
 					
-					int value = Conversion.rebaseToInt(dec, 10);
-					String bin = Conversion.intToRebasedString(value, 2);
-					String hex = Conversion.intToRebasedString(value, 16);
-					
-					System.out.println("Binary:      "+bin);
-					System.out.println("Decimal:     "+dec);
-					System.out.println("Hexadecimal: "+hex);
+					System.out.println("Decimal:     " + dec);
+					System.out.println("Binary:      " + dec2Bin(dec));
+					System.out.println("Hexadecimal: " + dec2Hex(dec));
 					break;
 				}
 				break;
