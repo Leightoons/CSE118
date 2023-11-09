@@ -74,6 +74,7 @@ public class Project1 {
 					}
 					
 					int value = Conversion.rebaseToInt(hex, 16);
+					hex = Conversion.intToRebasedString(value, 16); // makes sure output uses uppercase letters
 					String bin = Conversion.intToRebasedString(value, 2);
 					String dec = Conversion.intToRebasedString(value, 10);
 					
