@@ -10,18 +10,20 @@ public class Conversion {
 	}
 	
 	private static int char2Val(char c) {
+		// digits
 		if (c >= '0' && c <= '9')
 			return c - '0';
 		
+		// uppercase letters
 		else if (c >= 'A' && c <= 'Z')
 			return c - 'A' + 10;
 		
+		// lowercase letters
 		else if (c >= 'a' && c <= 'z')
 			return c - 'a' + 10;
 		
 		else return -1;
 	}
-
 	
 	/**
 	 * Validates that a number represented as a string contains
@@ -44,12 +46,12 @@ public class Conversion {
 	}
 	
 	/**
-	 *  Converts an int value into a string representation of the specified base number system
-	 *  
-	 *  @param num The value to be represented
-	 *  @param base The base of the number system used in representation
-	 *  
-	 *  @return String containing numeric representation of value using given base
+	 * Converts an int value into a string representation of the specified base number system
+	 * 
+	 * @param num The value to be represented
+	 * @param base The base of the number system used in representation
+	 * 
+	 * @return String containing numeric representation of value using given base
 	 */
 	public static String intToRebasedString(int num, int base) {
 		String str = "";

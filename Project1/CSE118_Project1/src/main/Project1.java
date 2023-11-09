@@ -37,7 +37,6 @@ public class Project1 {
 		int val = Conversion.rebaseToInt(bin, 2);
 		return Conversion.intToRebasedString(val, 10);
 	}
-	
 	public static String bin2Hex(String bin) {
 		int val = Conversion.rebaseToInt(bin, 2);
 		return Conversion.intToRebasedString(val, 16);
@@ -47,7 +46,6 @@ public class Project1 {
 		int val = Conversion.rebaseToInt(dec, 10);
 		return Conversion.intToRebasedString(val, 2);
 	}
-	
 	public static String dec2Hex(String dec) {
 		int val = Conversion.rebaseToInt(dec, 10);
 		return Conversion.intToRebasedString(val, 16);
@@ -57,7 +55,6 @@ public class Project1 {
 		int val = Conversion.rebaseToInt(hex, 16);
 		return Conversion.intToRebasedString(val, 2);
 	}
-	
 	public static String hex2Dec(String hex) {
 		int val = Conversion.rebaseToInt(hex, 16);
 		return Conversion.intToRebasedString(val, 10);
