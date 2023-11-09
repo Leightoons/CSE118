@@ -32,6 +32,7 @@ public class Project1 {
 			
 		return -1;
 	}
+
 	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
@@ -111,7 +112,7 @@ public class Project1 {
 				break;
 			
 			default :
-				System.out.println("Input not valid\n");
+				System.out.println("Input not valid");
 			}
 			
 			// print newline on loop restart
