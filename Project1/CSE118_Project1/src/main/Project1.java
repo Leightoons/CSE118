@@ -63,29 +63,30 @@ public class Project1 {
 		return Conversion.intToRebasedString(val, 10);
 	}
 	
-	
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		
 		boolean loopProgram = true;
 		while (loopProgram) {
+			String bin = null, dec = null, hex = null;
+			boolean showResult = true;
+			
 			System.out.print(menu);
 			int selection = parseSelectionInput(input.nextLine().trim());
-			
 			switch(selection) {
+			
 			case 1: // binary -> dec/hex
 				while (true) {
 					System.out.println("Enter a binary number: ");
-					String bin = input.nextLine().trim();
+					bin = input.nextLine().trim();
 					
 					if (!Conversion.isValidNumber(bin,2)) {
 						System.out.println("Input not valid\n");
 						continue;
 					}
-
-					System.out.println("Binary:      " + bin);
-					System.out.println("Decimal:     " + bin2Dec(bin));
-					System.out.println("Hexadecimal: " + bin2Hex(bin));
+					
+					dec = bin2Dec(bin);
+					hex = bin2Hex(bin);
 					break;
 				}
 				break;
@@ -93,16 +94,15 @@ public class Project1 {
 			case 2: // hex -> binary/dec
 				while (true) {
 					System.out.println("Enter a hexadecimal number: ");
-					String hex = input.nextLine().trim();
+					hex = input.nextLine().trim();
 					
 					if (!Conversion.isValidNumber(hex,16)) {
 						System.out.println("Input not valid\n");
 						continue;
 					}
 					
-					System.out.println("Hexadecimal: " + hex);
-					System.out.println("Binary:      " + hex2Bin(hex));
-					System.out.println("Decimal:     " + hex2Dec(hex));
+					bin = hex2Bin(hex);
+					dec = hex2Dec(hex);
 					break;
 				}
 				break;
@@ -110,29 +110,31 @@ public class Project1 {
 			case 3: // dec -> binary/hex
 				while (true) {
 					System.out.println("Enter a decimal number: ");
-					String dec = input.nextLine().trim();
+					dec = input.nextLine().trim();
 					
 					if (!Conversion.isValidNumber(dec,10)) {
 						System.out.println("Input not valid\n");
 						continue;
 					}
 					
-					System.out.println("Decimal:     " + dec);
-					System.out.println("Binary:      " + dec2Bin(dec));
-					System.out.println("Hexadecimal: " + dec2Hex(dec));
+					bin = dec2Bin(dec);
+					hex = dec2Hex(dec);
 					break;
 				}
 				break;
 				
 			case 4: // exit
 				loopProgram = false;
+				showResult = false;
 				break;
 			
-			default :
+			default:
+				showResult = false;
 				System.out.println("Input not valid");
 			}
 			
-			// print newline on loop restart
+			if (showResult) System.out.printf("Binary: %s\nDecimal: %s\nHexadecimal: %s\n", bin,dec,hex);
+			
 			System.out.println();
 		}
 		
