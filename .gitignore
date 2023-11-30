@@ -1,2 +1,12 @@
 
 Project2/CSE118_Project2/src/Test.java
+*.log
+*.snap
+*.xml
+*.resources
+.metadata/.log
+.metadata/version.ini
+*.prefs
+*.ini
+.metadata/.log
+/.metadata/

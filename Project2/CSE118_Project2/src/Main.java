@@ -51,14 +51,17 @@ public class Main {
 			
 			switch (selection) {
 			case 1: // Triangle
+				System.out.println();
 				Patterns.PrintTriangles(n);
 				break;
 				
 			case 2: // Pyramid
+				System.out.println();
 				Patterns.PrintPyramids(n);
 				break;
 				
 			case 3: // Diamond
+				System.out.println();
 				Patterns.PrintDiamonds(n);
 				break;
 				
