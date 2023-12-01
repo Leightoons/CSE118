@@ -42,7 +42,7 @@ public class Main {
 			}
 			
 			int n = -1;
-			while (true) {
+			while (selection != 4) {
 				System.out.print("Enter an integer value between 1 - 9: ");
 				n = validateInt(input.nextLine().trim(), 1, 9);
 				if (n != -1) break;
