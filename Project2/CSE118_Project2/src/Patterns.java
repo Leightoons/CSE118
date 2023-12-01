@@ -6,29 +6,23 @@ interface PatternFunc {
 
 public class Patterns {
 	
-	private static void printArray2d(int[][] array) {
+	private static void printArray2d(int[][] array, boolean xInvert, boolean yInvert) {
 		for (int j = 0; j < array[0].length; j++) {
 			for (int i = 0; i < array.length; i++) {
-				int val = array[i][j];
+				int x = (xInvert)? array.length-1 - i : i;
+				int y = (yInvert)? array[0].length-1 - j : j;
+				int val = array[x][y];
 				System.out.print((val > 0)? (char)(val+'0') : ' ');
 				System.out.print(' ');
 			}
 			System.out.println();
 		}
 		System.out.println();
+	}
+	private static void printArray2d(int[][] array) {
+		printArray2d(array, false, false);
 	}
 	
-	private static void printArray2dReverse(int[][] array) {
-		for (int j = array[0].length-1; j >= 0 ; j--) {
-			for (int i = 0; i < array.length; i++) {
-				int val = array[i][j];
-				System.out.print((val > 0)? (char)(val+'0') : ' ');
-				System.out.print(' ');
-			}
-			System.out.println();
-		}
-		System.out.println();
-	}
 	
 	public static void printTriangles(int n) {
 		
@@ -93,8 +87,8 @@ public class Patterns {
 		
 		printArray2d(pyramidA);
 		printArray2d(pyramidB);
-		printArray2dReverse(pyramidA);
-		printArray2dReverse(pyramidB);
+		printArray2d(pyramidA, false, true);
+		printArray2d(pyramidB, false, true);
 	}
 	
 	public static void printDiamonds(int n) {
