@@ -11,6 +11,20 @@ public class Patterns {
 		}
 	}
 	
+	public static int[][] CreatePyramid(int n){
+		int columns = 2*n-1, rows = n;
+		int[][] pyramid = new int[columns][rows];
+		
+		for (int i = 0; i < columns; i++) {
+			int space = Math.abs(i - (n-1));
+			for (int j = space; j < rows; j++) {
+				pyramid[i][j] = j+1;
+			}
+		}
+		
+		return pyramid;
+	}
+	
 	public static void PrintTriangles(int n) {
 		
 		String[] lines = new String[n];
