@@ -52,17 +52,17 @@ public class Main {
 			switch (selection) {
 			case 1: // Triangle
 				System.out.println();
-				Patterns.PrintTriangles(n);
+				Patterns.printTriangles(n);
 				break;
 				
 			case 2: // Pyramid
 				System.out.println();
-				Patterns.PrintPyramids(n);
+				Patterns.printPyramids(n);
 				break;
 				
 			case 3: // Diamond
 				System.out.println();
-				Patterns.PrintDiamonds(n);
+				Patterns.printDiamonds(n);
 				break;
 				
 			case 4: // Exit

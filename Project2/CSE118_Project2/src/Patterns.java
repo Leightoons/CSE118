@@ -1,4 +1,9 @@
 
+@FunctionalInterface
+interface PatternFunc {
+	int run(int n, int i, int j);
+}
+
 public class Patterns {
 	
 	private static void printArray2d(int[][] array) {
@@ -6,26 +11,26 @@ public class Patterns {
 			for (int i = 0; i < array.length; i++) {
 				int val = array[i][j];
 				System.out.print((val > 0)? (char)(val+'0') : ' ');
+				System.out.print(' ');
 			}
 			System.out.println();
 		}
+		System.out.println();
 	}
 	
-	public static int[][] CreatePyramid(int n){
-		int columns = 2*n-1, rows = n;
-		int[][] pyramid = new int[columns][rows];
-		
-		for (int i = 0; i < columns; i++) {
-			int space = Math.abs(i - (n-1));
-			for (int j = space; j < rows; j++) {
-				pyramid[i][j] = j+1;
+	private static void printArray2dReverse(int[][] array) {
+		for (int j = array[0].length-1; j >= 0 ; j--) {
+			for (int i = 0; i < array.length; i++) {
+				int val = array[i][j];
+				System.out.print((val > 0)? (char)(val+'0') : ' ');
+				System.out.print(' ');
 			}
+			System.out.println();
 		}
-		
-		return pyramid;
+		System.out.println();
 	}
 	
-	public static void PrintTriangles(int n) {
+	public static void printTriangles(int n) {
 		
 		String[] lines = new String[n];
 
@@ -63,22 +68,36 @@ public class Patterns {
 		System.out.println();
 	}
 	
-	public static void PrintPyramids(int n) {
-		// setup pattern A (2A & 2C)
+	public static int[][] createPyramid(int n, PatternFunc func){
 		int columns = 2*n-1, rows = n;
-		int[][] patternA = new int[columns][rows];
+		int[][] pyramid = new int[columns][rows];
 		
 		for (int i = 0; i < columns; i++) {
 			int space = Math.abs(i - (n-1));
 			for (int j = space; j < rows; j++) {
-				patternA[i][j] = j+1;
+				pyramid[i][j] = func.run(n,i,j);
 			}
 		}
-		
-		printArray2d(patternA);
+		return pyramid;
 	}
 	
-	public static void PrintDiamonds(int n) {
+	public static void printPyramids(int n) {
+		PatternFunc a = (int _n, int i, int j) -> j + 1;
+		PatternFunc b = (int _n, int i, int j) -> {
+			int space = Math.abs(i - (n-1));
+			return j+1 - space;
+		};
+		
+		int[][] pyramidA = createPyramid(n, a);
+		int[][] pyramidB = createPyramid(n, b);
+		
+		printArray2d(pyramidA);
+		printArray2d(pyramidB);
+		printArray2dReverse(pyramidA);
+		printArray2dReverse(pyramidB);
+	}
+	
+	public static void printDiamonds(int n) {
 		return;
 	}
 	
