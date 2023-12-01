@@ -6,7 +6,7 @@ interface PatternFunc {
 
 public class Patterns {
 	
-	private static void printArray2d(int[][] array, boolean xInvert, boolean yInvert) {
+	public static void printArray2d(int[][] array, boolean xInvert, boolean yInvert) {
 		for (int j = 0; j < array[0].length; j++) {
 			for (int i = 0; i < array.length; i++) {
 				int x = (xInvert)? array.length-1 - i : i;
@@ -19,7 +19,7 @@ public class Patterns {
 		}
 		System.out.println();
 	}
-	private static void printArray2d(int[][] array) {
+	public static void printArray2d(int[][] array) {
 		printArray2d(array, false, false);
 	}
 	
@@ -75,6 +75,7 @@ public class Patterns {
 		return pyramid;
 	}
 	
+	
 	public static void printPyramids(int n) {
 		PatternFunc a = (int _n, int i, int j) -> j + 1;
 		PatternFunc b = (int _n, int i, int j) -> {
@@ -90,6 +91,7 @@ public class Patterns {
 		printArray2d(pyramidA, false, true);
 		printArray2d(pyramidB, false, true);
 	}
+	
 	
 	public static void printDiamonds(int n) {
 		return;
