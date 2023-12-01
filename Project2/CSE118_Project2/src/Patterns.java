@@ -109,12 +109,31 @@ public class Patterns {
 			if (j < n) return j+1 - space;
 			return n - (j+1)%n - space;
 		};
-
+		PatternFunc b = (int _n, int i, int j) -> {
+			int space = Math.abs(j - (n-1));
+			if (i < n) return i+1 ;
+			return n - (i+1)%n;
+		};
+		PatternFunc c = (int _n, int i, int j) -> {
+			int space = Math.abs(i - (n-1));
+			if (j < n) return j+1 ;
+			return n - (j+1)%n;
+		};
+		PatternFunc d = (int _n, int i, int j) -> {
+			int space = Math.abs(j - (n-1));
+			if (i < n) return n - i ;
+			return i - n + 2;
+		};
+		
 		int[][] diamondA = createDiamond(n, a);
+		int[][] diamondB = createDiamond(n, b);
+		int[][] diamondC = createDiamond(n, c);
+		int[][] diamondD = createDiamond(n, d);
 
 		printArray2d(diamondA);
-		//printArray2d(diamondB);
-		//printArray2d(diamondC);
+		printArray2d(diamondB);
+		printArray2d(diamondC);
+		printArray2d(diamondD);
 	}
 	
 }
