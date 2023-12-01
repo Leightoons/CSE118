@@ -23,7 +23,6 @@ public class Patterns {
 		printArray2d(array, false, false);
 	}
 	
-	
 	public static void printTriangles(int n) {
 		
 		String[] lines = new String[n];
@@ -75,6 +74,18 @@ public class Patterns {
 		return pyramid;
 	}
 	
+	public static int[][] createDiamond(int n, PatternFunc func){
+		int columns = 2*n-1, rows = columns;
+		int[][] diamond = new int[columns][rows];
+		
+		for (int i = 0; i < columns; i++) {
+			int space = Math.abs(i - (n-1));
+			for (int j = space; j < rows - space; j++) {
+				diamond[i][j] = func.run(n,i,j);
+			}
+		}
+		return diamond;
+	}
 	
 	public static void printPyramids(int n) {
 		PatternFunc a = (int _n, int i, int j) -> j + 1;
@@ -92,9 +103,18 @@ public class Patterns {
 		printArray2d(pyramidB, false, true);
 	}
 	
-	
 	public static void printDiamonds(int n) {
-		return;
+		PatternFunc a = (int _n, int i, int j) -> {
+			int space = Math.abs(i - (n-1));
+			if (j < n) return j+1 - space;
+			return n - (j+1)%n - space;
+		};
+
+		int[][] diamondA = createDiamond(n, a);
+
+		printArray2d(diamondA);
+		//printArray2d(diamondB);
+		//printArray2d(diamondC);
 	}
 	
 }
