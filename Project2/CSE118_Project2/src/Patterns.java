@@ -23,42 +23,16 @@ public class Patterns {
 		printArray2d(array, false, false);
 	}
 	
-	public static void printTriangles(int n) {
+	
+	public static int[][] createTriangle(int n, PatternFunc func){
+		int[][] triangle = new int[n][n];
 		
-		String[] lines = new String[n];
-
 		for (int i = 0; i < n; i++) {
-			lines[i] = "";
-			for (int j = 0; j <= i; j++) {
-				lines[i] += String.valueOf(i+1);
+			for (int j = i; j < n; j++) {
+				triangle[i][j] = func.run(n,i,j);
 			}
 		}
-		
-		// left down triangle
-		for (String line : lines) 
-			System.out.printf("%-" + n + "s\n", line);
-		System.out.println();
-		
-		// right down triangle
-		for (String line : lines) 
-			System.out.printf("%" + n + "s\n", line);
-		System.out.println();
-		
-		// left up triangle
-		for (int i = lines.length-1; i >= 0; i--) 
-			System.out.printf("%-" + n + "s\n", lines[i]);
-		System.out.println();
-		
-		// right down reversed
-		for (int i = 0; i < n; i++) {
-			lines[i] = "";
-			for (int j = 0; j <= i; j++) {
-				lines[i] += String.valueOf(n-i);
-			}
-		}
-		for (String line : lines) 
-			System.out.printf("%" + n + "s\n", line);
-		System.out.println();
+		return triangle;
 	}
 	
 	public static int[][] createPyramid(int n, PatternFunc func){
@@ -85,6 +59,20 @@ public class Patterns {
 			}
 		}
 		return diamond;
+	}
+	
+	
+	public static void printTriangles(int n) {
+		PatternFunc a = (int _n, int i, int j) -> j + 1;
+		PatternFunc b = (int _n, int i, int j) -> n - j;
+		
+		int[][] triangleA = createTriangle(n, a);
+		int[][] triangleB = createTriangle(n, b);
+		
+		printArray2d(triangleA);
+		printArray2d(triangleA, true, false);
+		printArray2d(triangleA, false, true);
+		printArray2d(triangleB, true, false);
 	}
 	
 	public static void printPyramids(int n) {
