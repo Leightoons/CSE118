@@ -1,5 +1,15 @@
 
 public class HW10_Part5 {
+	
+	public static void arraySwapIndices(int[] array, int a, int b) {
+		int t = array[a];
+		array[a] = array[b];
+		array[b] = t;
+	}
+	
+	public static void arrayMoveElement(int[] array, int a, int b) {
+		
+	}
 
 	public static void main(String[] args) {
 		int[] array1 = new int[20];
@@ -17,6 +27,10 @@ public class HW10_Part5 {
 		for(int n : array1) System.out.println(n);
 		System.out.println();
 		for(int n : array2) System.out.println(n);
+		
+		//optional (separate pos & neg in array1 w/o new array)
+		
+		
 	}
 
 }
