@@ -12,9 +12,9 @@ public class HW11_Part2 {
 	}
 	
 	public static void main(String[] args) {
-		int[] a = new int[] {1,2,3,4,5};
-		int[] b = new int[] {1,2,3,4,5};
-		int[] c = new int[] {1,2,3,4,4};
+		int[] a = new int[] {1,2,3,4};
+		int[] b = new int[] {1,2,3,4};
+		int[] c = new int[] {1,2,4,3};
 		
 		System.out.println(arrayCheckEqual(a,b));
 		System.out.println(arrayCheckEqual(b,c));

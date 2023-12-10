@@ -47,11 +47,13 @@ public class HW11_Part1 {
 			strArr[strArr.length - wordsLeft] = input.next();
 			if (--wordsLeft <= 0) break;
 		}
+		input.close();
 		
 		System.out.println(linearSearch(strArr, "cs"));
 		selectionSort(strArr);
 		System.out.println(binarySearch(strArr, "math"));
-
+		
+		
 	}
 
 }
